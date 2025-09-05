@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Flexbox Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <h1>Responsive Flexbox (4 Cells)</h1>
+
+    <section class="grid" aria-label="Responsive content grid">
+      <!-- Cell 1: Hyperlink -->
+      <article class="cell" aria-labelledby="cell-link-title">
+        <h2 id="cell-link-title">Link</h2>
+        <p>
+          <a class="buttonlike" href="https://github.com/Gabriel-M73/CMP411" target="_blank" rel="noopener">
+            my github
+          </a>
+        </p>
+        <p class="note">Opens in a new tab.</p>
+      </article>
+
+      <!-- Cell 2: Image with alt text -->
+      <article class="cell" aria-labelledby="cell-image-title">
+        <h2 id="cell-image-title">Image</h2>
+        <img
+          src="images/hapi1.jpg"
+          alt="dog with propeller hat and lolipop"
+          loading="lazy"
+        />
+      </article>
+
+      <!-- Cell 3: Video -->
+      <article class="cell" aria-labelledby="cell-video-title">
+        <h2 id="cell-video-title">Video</h2>
+        <video controls width="100%" aria-label="Flower video example" poster="" preload="metadata">
+          <source src="videos/mexico.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </article>
+
+      <!-- Cell 4: Geolocation -->
+      <article class="cell" aria-labelledby="cell-geo-title">
+        <h2 id="cell-geo-title">Geolocation API</h2>
+        <p id="geo-help" class="note">
+          Click the button to request your approximate location (you’ll be asked for permission).
+        </p>
+        <button id="getLocation" aria-describedby="geo-help">Get my location</button>
+
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+        <pre class="coords" id="coords" aria-label="Coordinates will appear here"></pre>
+        <p id="mapLinkWrap" hidden>
+          <a id="mapLink" target="_blank" rel="noopener">Open in Maps</a>
+        </p>
+        <noscript>
+          <p class="note">Enable JavaScript to use the Geolocation feature.</p>
+        </noscript>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('getLocation');
+      const statusEl = document.getElementById('status');
+      const coordsEl = document.getElementById('coords');
+      const mapLinkWrap = document.getElementById('mapLinkWrap');
+      const mapLink = document.getElementById('mapLink');
+
+      function setStatus(msg) {
+        statusEl.textContent = msg || '';
+      }
+
+      function setCoords(lat, lon, acc) {
+        coordsEl.textContent = `Latitude:  ${lat}\nLongitude: ${lon}\nAccuracy:  ${acc} meters`;
+        const q = `${lat},${lon}`;
+        mapLink.href = `https://www.google.com/maps?q=${encodeURIComponent(q)}`;
+        mapLink.textContent = `View ${q} on Google Maps`;
+        mapLinkWrap.hidden = false;
+      }
+
+      function handleError(err) {
+        const codes = {
+          1: 'Permission denied',
+          2: 'Position unavailable',
+          3: 'Request timeout'
+        };
+        setStatus(`Geolocation error: ${codes[err.code] || 'Unknown error'}.`);
+      }
+
+      btn?.addEventListener('click', () => {
+        if (!('geolocation' in navigator)) {
+          setStatus('Geolocation is not supported by your browser.');
+          return;
+        }
+        setStatus('Requesting location…');
+        mapLinkWrap.hidden = true;
+        coordsEl.textContent = '';
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            setStatus('Location retrieved.');
+            const { latitude, longitude, accuracy } = pos.coords;
+            setCoords(latitude.toFixed(6), longitude.toFixed(6), Math.round(accuracy));
+          },
+          handleError,
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+      });
+    })();
+  </script>
+</body>
+</html>
