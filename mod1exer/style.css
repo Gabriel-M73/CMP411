@@ -1,0 +1,19 @@
+/* Background */
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Hello! greeting */
+  #hello {
+    color: red;
+    font-size: 2.5em;
+  }
+  
+  /* Welcome message */
+  #welcomeMessage {
+    color: blue;
+    font-size: 2em;
+    margin-top: 20px;
+  }
+  

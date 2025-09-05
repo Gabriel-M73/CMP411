@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tool Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Tool Form</h2>
+    <form id="surveyForm">
+      
+      <!-- Text field -->
+      <label for="name">Tool Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <!-- Dropdown -->
+      <label for="toolBrand">Tool Brand:</label>
+      <select id="toolBrand" name="toolBrand" required>
+        <option value="">-- Select --</option>
+        <option value="dewalt">Dewalt</option>
+        <option value="makita">Makita</option>
+        <option value="milwaukee">Milwaukee</option>
+        <option value="ryobi+">Ryobi</option>
+      </select>
+      
+      <!-- Radio buttons -->
+      <p>Would you like a warranty?</p>
+      <label><input type="radio" name="warranty" value="yes" required> Yes</label>
+      <label><input type="radio" name="warranty" value="no"> No</label>
+      
+      <!-- Checkboxes -->
+      <p>How many years? (optional)</p>
+      <label><input type="checkbox" name="years" value="1year"> 1 year</label>
+      <label><input type="checkbox" name="years" value="2years"> 2 years</label>
+      <label><input type="checkbox" name="years" value="3years"> 3 years</label>
+      <label><input type="checkbox" name="years" value="4years"> 4 years</label>
+      
+      <!-- Text area -->
+      <label for="comments">Additional Comments (optional):</label>
+      <textarea id="comments" name="comments" rows="4"></textarea>
+      
+      <!-- Submit -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // Form validation and submission
+    document.getElementById("surveyForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form refresh
+
+      let name = document.getElementById("name").value.trim();
+      if (name === "") {
+        alert("Please fill out a tool before submitting.");
+        return;
+      }
+
+      alert("Form submitted successfully! 🎉");
+      this.reset(); // reset form after success
+    });
+  </script>
+</body>
+</html>
