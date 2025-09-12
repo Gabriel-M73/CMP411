@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chill Bill's Paper Shoppe</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="images/Chill.jpg">
 </head>
 <body>
   <!-- Header -->
@@ -24,7 +25,7 @@
   <div class="hero">
     <h2>Buy My Paper</h2>
 
-    <img
+    <img onmouseover="bigImg(this)" onmouseout="normImg(this)"
           src="images/Chill.jpg"
           alt="I'm Chill Bill"
           loading="lazy"
@@ -38,12 +39,12 @@
       <div class="product-card">
         <img src="images/bluenotebook.jpg" alt="Notebook">
         <h3>Notebook</h3>
-        <p>Blue notebooks, just like me.</p>
+        <p>Blue Notebooks, just like me.</p>
       </div>
       <div class="product-card">
-        <img src="images/Chill.jpg" alt="Stationery">
-        <h3>Stationery</h3>
-        <p>Stylish pens, pencils, and office supplies.</p>
+        <img src="images/bluepen.jpg" alt="Pens">
+        <h3>Pens</h3>
+        <p>Blue Pens, just like me.</p>
       </div>
       <div class="product-card">
         <img src="images/bluecardstock.jpg" alt="Card Stock">
@@ -51,12 +52,25 @@
         <p>Blue Card Stock, just like me.</p>
       </div>
       <div class="product-card">
-        <img src="images/Chill.jpg" alt="Journals">
+        <img src="images/bluejournal.jpg" alt="Journals">
         <h3>Journals</h3>
-        <p>Beautiful journals for your thoughts.</p>
+        <p>Beautiful Blue Journals for your thoughts about me.</p>
       </div>
     </div>
   </section>
+
+  <!-- JavaScripts -->
+  <script>
+    function bigImg(x) {
+      x.style.height = "300px";
+      x.style.width = "300px";
+    }
+
+    function normImg(x) {
+      x.style.height = "200px";
+      x.style.width = "200px"
+    }
+  </script>
 
 </body>
 </html>
