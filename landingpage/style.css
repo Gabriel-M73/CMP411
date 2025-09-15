@@ -100,7 +100,7 @@ header h1 {
     align-items: center;
   }
   .product-card {
-    flex: 1, 1, 45%;
+    flex: 1, 1, 150px;
   }
 }
 
