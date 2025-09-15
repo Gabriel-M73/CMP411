@@ -87,17 +87,26 @@ header h1 {
   }
 }
 
+@media screen and (max-width: 901px) {
+  .products {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 601px){
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-card {
+    flex: 1, 1, 45%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .product-container {
     flex-direction: column;
     align-items: center;
   }
 }
-
-@media screen and (max-width: 900px) {
-  .product-container {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
