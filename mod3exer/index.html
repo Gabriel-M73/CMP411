@@ -11,39 +11,64 @@
             <h1>List Builder</h1>
 
             <section class="grid" aria-label="Responsive content grid">
-            <!-- Cell 1: Hyperlink -->
+
+            <!-- Cell 1: Form -->
             <div class="cell-container">
                 <h2>Form to put word into a list</h2>
                 <div class="cell">
                     <form>
-                        <label for="wordform">Enter a word</label>
-                        <input type="text" id="wordform" name="wordform"><br>
-                        <label for="list1radio">List 1</label>
-                        <input type="radio" id="list1radio" name="list1radio"><br>
-                        <label for="list2radio">List 2</label>
-                        <input type="radio" id="list2radio" name="list2radio"><br>
+                        <label for="word_form">Enter a word</label>
+                        <input type="text" id="word_form" name="word_form" required><br>
+                        <label for="list1_radio">List 1</label>
+                        <input type="radio" id="list1_radio" name="list1_radio" required><br>
+                        <label for="list2_radio">List 2</label>
+                        <input type="radio" id="list2_radio" name="list2_radio" required><br>
                     </form>
                 </div>
-                <button> add to list</button>
+                <button type="add_word">Add to a list</button>
             </div>
 
-            <!-- Cell 2: Image with alt text -->
+            <!-- Cell 2: List 1 -->
             <div class="cell-container">
                 <h2>List 1</h2>
                 <div class="cell">
-                    <p>placeholder</p>
+                    <p id="list1"></p>
                 </div>
                 <button> clear list</button>
             </div>
 
-            <!-- Cell 3: Video -->
+            <!-- Cell 3: List 2 -->
             <div class="cell-container">
                 <h2>List 2</h2>
                 <div class="cell">
-                    <p>placeholder</p>
+                    <p id="list2">placeholder</p>
                 </div>
                 <button> clear list</button>
             </div>
+
+            <script>
+                document.getElementById("word_form").addEventListener("add_word", function(event) {
+                    event.preventDefault();
+
+                    let word = document.getElementById("word_form").value.trim();
+                    if(word === "") {
+                        alert("please enter a word")
+                        return;
+                    }
+
+                    let list1 = document.getElementById("list1")
+                    let list2 = document.getElementById("list2")
+
+                    if(document.getElementById("list1_radio") == true) {
+                        list1.innerHTML = word;
+                    }
+
+                    // the code for list2
+                });
+
+                // this is where the code for the clear buttons will go
+            </script>
+
         </main>
     </body>
 </html>
