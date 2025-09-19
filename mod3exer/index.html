@@ -18,14 +18,16 @@
                 <div class="cell">
                     <form>
                         <label for="word_form">Enter a word</label>
-                        <input type="text" id="word_form" name="word_form" required><br>
+                        <input type="text" id="word_form" name="word_form" placeholder="Add word"><br>
+
                         <label for="list1_radio">List 1</label>
                         <input type="radio" id="list1_radio" name="list1_radio" required><br>
+
                         <label for="list2_radio">List 2</label>
                         <input type="radio" id="list2_radio" name="list2_radio" required><br>
                     </form>
                 </div>
-                <button type="add_word">Add to a list</button>
+                <button type="add_word" onclick="addWord">Add to a list</button>
             </div>
 
             <!-- Cell 2: List 1 -->
@@ -45,30 +47,7 @@
                 </div>
                 <button> clear list</button>
             </div>
-
-            <script>
-                document.getElementById("word_form").addEventListener("add_word", function(event) {
-                    event.preventDefault();
-
-                    let word = document.getElementById("word_form").value.trim();
-                    if(word === "") {
-                        alert("please enter a word")
-                        return;
-                    }
-
-                    let list1 = document.getElementById("list1")
-                    let list2 = document.getElementById("list2")
-
-                    if(document.getElementById("list1_radio") == true) {
-                        list1.innerHTML = word;
-                    }
-
-                    // the code for list2
-                });
-
-                // this is where the code for the clear buttons will go
-            </script>
-
+            
         </main>
     </body>
 </html>
