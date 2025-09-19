@@ -54,12 +54,11 @@ h2 {
 }
 
 .cell {
-    background: rgb(165, 47, 208);
+    background: rgb(255, 69, 69);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     width: 200px;
-    transition: transform 0.3s;
 }
 
 .cell forms,
