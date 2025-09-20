@@ -18,13 +18,14 @@ function addWord() {
     }
 } // addWord function
 
-function clearList(list) {
-    listElement = document.getElementById(list);
-    listElement.innerHTML = '';
-    if(document.getElementsByName("clear_list")[0].checked) {
-        alert("here")
-        list1 = "";
-    } else {
-        list2 = "";
-    }
+function clearList1() {
+    listElement = document.getElementById("list1_text");
+    listElement.innerHTML = "";
+    list1 = ""
+} // clearList function
+
+function clearList2() {
+    listElement = document.getElementById("list2_text");
+    listElement.innerHTML = "";
+    list2 = ""
 } // clearList function
