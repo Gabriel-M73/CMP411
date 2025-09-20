@@ -1,21 +1,30 @@
+let list1 = "";
+let list2 = "";
+
 function addWord() {
-    let list1 = "";
-    let list2 = "";
-    document.getElementById("word_form").addEventListener("add_word", function(event) {
-        event.preventDefault();
+    let word = document.getElementById("word_form").value.trim();
 
-            let word = document.getElementById("word_form").value.trim();
-            if(word === "") {
-                alert("please enter a word")
-                return;
-            }
+    if(word ==="") {
+        alert("please enter a word")
+        return;
+    }
 
-            let listone = document.getElementById("list1")
-            let listtwo = document.getElementById("list2")
+    if(document.getElementsByName("list_choice")[0].checked) {
+        list1 += document.getElementById("word_form").value + '<br>';
+        document.getElementById("list1_text").innerHTML = list1;
+    } else {
+        list2 += document.getElementById("word_form").value + '<br>';
+        document.getElementById("list2_text").innerHTML = list2
+    }
+} // addWord function
 
-            if(document.getElementById("list1_radio") == true) {
-                listone.innerHTML = word;
-            }
-
-    });
-} // add word function
+function clearList(list) {
+    listElement = document.getElementById(list);
+    listElement.innerHTML = '';
+    if(document.getElementsByName("clear_list")[0].checked) {
+        alert("here")
+        list1 = "";
+    } else {
+        list2 = "";
+    }
+} // clearList function

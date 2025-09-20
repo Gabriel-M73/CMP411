@@ -22,33 +22,33 @@
                         <input type="text" id="word_form" name="word_form" placeholder="Add word"><br>
 
                         <label for="list1_radio">List 1</label>
-                        <input type="radio" id="list1_radio" name="list1_radio" required><br>
+                        <input type="radio" id="list1_radio" name="list_choice" required><br>
 
                         <label for="list2_radio">List 2</label>
-                        <input type="radio" id="list2_radio" name="list2_radio" required><br>
+                        <input type="radio" id="list2_radio" name="list_choice" required><br>
                     </form>
                 </div>
-                <button type="add_word" onclick="addWord">Add to a list</button>
+                <input class="buttonlike" type="button" value="Add a Word" onclick="addWord()">
             </div>
 
             <!-- Cell 2: List 1 -->
             <div class="cell-container">
                 <h2>List 1</h2>
                 <div class="cell">
-                    <p id="list1"></p>
+                    <p id="list1_text"></p>
                 </div>
-                <button> clear list</button>
+                <input class="buttonlike" type="button" value="Clear List" name="clear_list" onclick="clearList('list1_text')">
             </div>
 
             <!-- Cell 3: List 2 -->
             <div class="cell-container">
                 <h2>List 2</h2>
                 <div class="cell">
-                    <p id="list2">placeholder</p>
+                    <p id="list2_text"></p>
                 </div>
-                <button> clear list</button>
+                <input class="buttonlike" type="button" value="Clear List" name="clear_list" onclick="clearList('list2_text')">
             </div>
 
         </main>
     </body>
-</html>
+</html> 
