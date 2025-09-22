@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>List Builder</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <main class="page">
+            <h1>Palindrome Checker</h1>
+
+            <section class="grid" aria-label="Responsive content grid">
+
+            <!-- Cell 1: Form -->
+            <div class="cell-container">
+                <h2>Form to check if word is a palindrome</h2>
+                <div class="cell">
+                    <form>
+                        <label for="word_form">Enter a word</label>
+                        <input type="text" id="word_form" name="word_form" placeholder="Add word"><br>
+
+                        <label for="list1_radio">Algo 1</label>
+                        <input type="radio" id="list1_radio" name="list_choice" required><br>
+
+                        <label for="list2_radio">Algo 2</label>
+                        <input type="radio" id="list2_radio" name="list_choice" required><br>
+                    </form>
+                </div>
+                <input class="buttonlike" type="button" value="Add a Word" onclick="addWord()">
+            </div>
+
+            <!-- Cell 2: List 1 -->
+            <div class="cell-container">
+                <h2>List 1</h2>
+                <div class="cell">
+                    <p id="list1_text"></p>
+                </div>
+                <input class="buttonlike" type="button" value="Clear List" name="clear_list" onclick="clearList1()">
+            </div>
+
+            <!-- Cell 3: List 2 -->
+            <div class="cell-container">
+                <h2>List 2</h2>
+                <div class="cell">
+                    <p id="list2_text"></p>
+                </div>
+                <input class="buttonlike" type="button" value="Clear List" name="clear_list" onclick="clearList2()">
+            </div>
+
+        </main>
+    </body>
+</html> 
