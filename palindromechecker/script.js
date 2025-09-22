@@ -1,7 +1,8 @@
 let list1 = "";
 let list2 = "";
+let list3 = "";
 
-function addWord() {
+function checkWord() {
     let word = document.getElementById("word_form").value.trim();
 
     if(word ==="") {
@@ -12,11 +13,20 @@ function addWord() {
     if(document.getElementsByName("list_choice")[0].checked) {
         list1 += document.getElementById("word_form").value + '<br>';
         document.getElementById("list1_text").innerHTML = list1;
-    } else {
+    } 
+    if(document.getElementsByName("list_choice")[1].checked) {
         list2 += document.getElementById("word_form").value + '<br>';
         document.getElementById("list2_text").innerHTML = list2
     }
-} // addWord function
+    if(document.getElementsByName("list_choice")[2].checked) {
+        list3 += document.getElementById("word_form").value + '<br>';
+        document.getElementById("list3_text").innerHTML = list3
+    }
+} // checkWord function
+
+function algorithim1 () {
+    
+} // algorithim1 function
 
 function clearList1() {
     listElement = document.getElementById("list1_text");
@@ -29,3 +39,9 @@ function clearList2() {
     listElement.innerHTML = "";
     list2 = ""
 } // clearList2 function
+
+function clearList3() {
+    listElement = document.getElementById("list3_text");
+    listElement.innerHTML = "";
+    list3 = ""
+} // clearList3 function
