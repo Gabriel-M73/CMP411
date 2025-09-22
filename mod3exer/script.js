@@ -22,10 +22,10 @@ function clearList1() {
     listElement = document.getElementById("list1_text");
     listElement.innerHTML = "";
     list1 = ""
-} // clearList function
+} // clearList1 function
 
 function clearList2() {
     listElement = document.getElementById("list2_text");
     listElement.innerHTML = "";
     list2 = ""
-} // clearList function
+} // clearList2 function
