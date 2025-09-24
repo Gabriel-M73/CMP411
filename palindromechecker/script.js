@@ -5,15 +5,15 @@ let list3 = "";
 function checkWord() {
     let word = document.getElementById("word_form").value.trim();
 
+    word = sanitize(word);
+
     if(word ==="") {
         alert("please enter a word")
         return;
     }
 
-    word = sanitize(word)
-
     if(document.getElementsByName("list_choice")[0].checked) {
-        list1 += document.getElementById("word_form").value + '<br>';
+        list1 += word + '<br>';
         document.getElementById("list1_text").innerHTML = list1;
     } 
     if(document.getElementsByName("list_choice")[1].checked) {
@@ -27,7 +27,7 @@ function checkWord() {
 } // checkWord function
 
 function algorithim1 (word) {
-    checker = word.reverse()
+    checker = word.reverse();
 } // algorithim1 function
 
 function clearList1() {
@@ -58,5 +58,6 @@ function sanitize(string) {
       "/": '&#x2F;',
   };
   const reg = /[&<>"'/]/ig;
-  return string.replace(reg, (match)=>(map[match]));
+  checking = string.replace(reg, (match)=>(map[match]));
+  return checking;
 } // sanitze function
