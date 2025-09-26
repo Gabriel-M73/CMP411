@@ -22,7 +22,7 @@ function checkWord() {
         document.getElementById("list2_text").innerHTML = list2
     }
     if(document.getElementsByName("list_choice")[2].checked) {
-        list3 += word + '<br>';
+        list3 += word + ": " + palindrome3() + '<br>';
         document.getElementById("list3_text").innerHTML = list3
     }
 } // checkWord function
@@ -51,6 +51,11 @@ function palindrome2() {
   return true;
 } // palindrome 2 function - drags 2 pointers from the ends of the word to compare each character
 
+function palindrome3() {
+    checker = "";
+    checker = word.split("").every((char, i) => char === word[word.length - 1 - i]);
+    return checker;
+} // palindrome 3 function - uses the every() method to check if each character matches the character at its mirrored position
 
 function clearList1() {
     listElement = document.getElementById("list1_text");
