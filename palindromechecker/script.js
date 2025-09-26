@@ -14,11 +14,11 @@ function checkWord() {
     }
 
     if(document.getElementsByName("list_choice")[0].checked) {
-        list1 += word + ": " + palindrome1() +'<br>';
+        list1 += word + ": " + palindrome1() + '<br>';
         document.getElementById("list1_text").innerHTML = list1;
     } 
     if(document.getElementsByName("list_choice")[1].checked) {
-        list2 += word + '<br>';
+        list2 += word + ": " + palindrome2() + '<br>';
         document.getElementById("list2_text").innerHTML = list2
     }
     if(document.getElementsByName("list_choice")[2].checked) {
@@ -27,13 +27,30 @@ function checkWord() {
     }
 } // checkWord function
 
-function palindrome1 () {
+function palindrome1() {
     checker = "";
     checker = word.split("").reverse().join("");
     if(word === checker) {
         return true;
     } else {return false;}
-} // palindrome1 function
+} // palindrome1 function - reverses the whole word then check it against itself
+
+function palindrome2() {
+    checker = "";
+    checker = word;
+    let left = 0;
+    let right = checker.length - 1;
+
+    while (left < right) {
+        if (checker[left] !== checker[right]) {
+            return false;
+        }
+        left++;
+        right--;
+    }
+  return true;
+} // palindrome 2 function - drags 2 pointers from the ends of the word to compare each character
+
 
 function clearList1() {
     listElement = document.getElementById("list1_text");
