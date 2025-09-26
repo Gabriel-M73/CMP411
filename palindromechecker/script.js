@@ -1,6 +1,7 @@
 let list1 = "";
 let list2 = "";
 let list3 = "";
+let list4 = "";
 let word = "";
 
 function checkWord() {
@@ -25,11 +26,16 @@ function checkWord() {
         list3 += word + ": " + palindrome3() + '<br>';
         document.getElementById("list3_text").innerHTML = list3
     }
+    if(document.getElementsByName("list_choice")[3].checked) {
+        list4 += word + ": " + palindrome4() + '<br>';
+        document.getElementById("list4_text").innerHTML = list4
+    }
 } // checkWord function
 
 function palindrome1() {
     checker = "";
     checker = word.split("").reverse().join("");
+
     if(word === checker) {
         return true;
     } else {return false;}
@@ -54,8 +60,21 @@ function palindrome2() {
 function palindrome3() {
     checker = "";
     checker = word.split("").every((char, i) => char === word[word.length - 1 - i]);
+
     return checker;
 } // palindrome 3 function - uses the every() method to check if each character matches the character at its mirrored position
+
+function palindrome4() {
+    checker = "";
+    checker = word;
+
+    for (let i = 0; i < checker.length / 2; i++) {
+        if (checker.charCodeAt(i) !== checker.charCodeAt(checker.length - 1 - i)) {
+            return false;
+        }
+    }
+    return true;
+}
 
 function clearList1() {
     listElement = document.getElementById("list1_text");
@@ -74,6 +93,12 @@ function clearList3() {
     listElement.innerHTML = "";
     list3 = ""
 } // clearList3 function
+
+function clearList4() {
+    listElement = document.getElementById("list4_text");
+    listElement.innerHTML = "";
+    list4 = ""
+} // clearList4 function
 
 function sanitize(string) {
   const map = {
