@@ -74,7 +74,7 @@ function palindrome4() {
         }
     }
     return true;
-}
+} // palindrome 4 function - checks each end of the word usinng the character's ASCII values
 
 function clearList1() {
     listElement = document.getElementById("list1_text");
