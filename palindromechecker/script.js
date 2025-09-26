@@ -17,11 +17,11 @@ function checkWord() {
         document.getElementById("list1_text").innerHTML = list1;
     } 
     if(document.getElementsByName("list_choice")[1].checked) {
-        list2 += document.getElementById("word_form").value + '<br>';
+        list2 += word + '<br>';
         document.getElementById("list2_text").innerHTML = list2
     }
     if(document.getElementsByName("list_choice")[2].checked) {
-        list3 += document.getElementById("word_form").value + '<br>';
+        list3 += word + '<br>';
         document.getElementById("list3_text").innerHTML = list3
     }
 } // checkWord function
