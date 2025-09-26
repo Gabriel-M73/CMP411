@@ -1,9 +1,10 @@
 let list1 = "";
 let list2 = "";
 let list3 = "";
+let word = "";
 
 function checkWord() {
-    let word = document.getElementById("word_form").value.trim();
+    word = document.getElementById("word_form").value.trim();
 
     word = sanitize(word);
 
@@ -13,7 +14,7 @@ function checkWord() {
     }
 
     if(document.getElementsByName("list_choice")[0].checked) {
-        list1 += word + '<br>';
+        list1 += word + ": " + palindrome1() +'<br>';
         document.getElementById("list1_text").innerHTML = list1;
     } 
     if(document.getElementsByName("list_choice")[1].checked) {
@@ -26,9 +27,13 @@ function checkWord() {
     }
 } // checkWord function
 
-function algorithim1 (word) {
-    checker = word.reverse();
-} // algorithim1 function
+function palindrome1 () {
+    checker = "";
+    checker = word.split("").reverse().join("");
+    if(word === checker) {
+        return true;
+    } else {return false;}
+} // palindrome1 function
 
 function clearList1() {
     listElement = document.getElementById("list1_text");
