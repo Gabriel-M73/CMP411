@@ -1,16 +1,17 @@
 async function getMeat() {
-    var api =  "https://baconipsum.com/api/";
-    var paragrahNum = document.getElementById("meat_form").value;
-    api = api + "?type=meat&paras=" + paragrahNum;
+    let api =  "https://baconipsum.com/api/";
+    let meatFiller = document.getElementById("filler_form").value;
+    let paragrahNum = document.getElementById("meat_form").value;
+    api = api + "?type=" + meatFiller +"&paras=" + paragrahNum;
 
     alert(api);
 
-    var meat = await fetch(api);
-    var meatJSON = await meat.json();
+    let meat = await fetch(api);
+    let meatJSON = await meat.json();
 
     document.getElementById("raw_text").innerHTML = JSON.stringify(meatJSON);
 
-    var paragrahForm = "";
+    let paragrahForm = "";
 
     for (para in meatJSON) {
         if(paragrahForm === "") {

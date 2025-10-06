@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Mod 4 Exercise</title>
+        <title>Caesar's Cipher</title>
         <link rel="stylesheet" href="style.css" />
         <script src="script.js"></script>
     </head>
@@ -16,6 +16,12 @@
                 <h2>Form to see how much meat to get</h2>
                     <div class="cell">
                         <form>
+                            <label for="filler_form">All meat or meat with filler?</label>
+                            <select id="filler_form">
+                                <option value="all-meat">All meat</option>
+                                <option value="meat-and-filler">Filler meat</option>
+                            </select>
+                            <br>
                             <label for="meat_form">Number of paragraphs</label>
                             <select id="meat_form">
                                 <option value="1">1</option>
@@ -41,6 +47,13 @@
                     <h2>Return data as formatted paragraphs</h2>
                     <div class="cell">
                         <p id="formatted_text"></p>
+                    </div>
+                </div>
+
+                <div class="cell-container">
+                    <h2>Returned data as encrypted</h2>
+                    <div class="cell">
+                        <p id="encrypted_text"></p>
                     </div>
                 </div>
             </section>
