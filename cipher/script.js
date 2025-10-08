@@ -21,6 +21,18 @@ async function getMeat() {
             paragrahForm += "<br>" + meatJSON[para] + "<br>";
         }
     }
-
+    
     document.getElementById("formatted_text").innerHTML = paragrahForm;
+
+    
+    const all_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const dict = {};
+    const key = 7;
+
+    for (let i = 0; i < all_letters.length; i++) {
+        dict[all_letters[i]] = all_letters[(i + key) % all_letters.length];
+    }
+
+    const plainText = paragrahForm;
+    
 }
