@@ -2,7 +2,8 @@ async function getMeat() {
     let api =  "https://baconipsum.com/api/";
     let meatFiller = document.getElementById("filler_form").value;
     let paragrahNum = document.getElementById("meat_form").value;
-    api = api + "?type=" + meatFiller +"&paras=" + paragrahNum;
+    let loremStart = document.getElementById("lorem_form").value;
+    api = api + "?type=" + meatFiller +"&paras=" + paragrahNum + "&start-with-lorem=" + loremStart;
 
     alert(api);
 
