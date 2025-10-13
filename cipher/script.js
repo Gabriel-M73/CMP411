@@ -31,8 +31,20 @@ async function getMeat() {
 
     for (let i = 0; i < all_letters.length; i++) {
         dict[all_letters[i]] = all_letters[(i + key) % all_letters.length];
-    }
+    } // populates dict with the alphabet shifted by 7 spaces
 
-    const plainText = paragrahForm;
+    const plainText = paragrahForm.replace(/(<|&lt;)br\s*\/*(>|&gt;)/gi, ' ');
+    let cipherText = "";
+
+    for (let i = 0; i < plainText.length; i++) {
+        const char = plainText[i];
+        if (all_letters.includes(char)) {
+            const temp = dict[char];
+            cipherText += temp;
+        } else {
+            cipherText += char;
+        }
+    }
     
+    document.getElementById("encrypted_text").innerHTML = cipherText;
 }
