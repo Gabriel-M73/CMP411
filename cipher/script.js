@@ -25,7 +25,7 @@ async function getMeat() {
     document.getElementById("formatted_text").innerHTML = paragrahForm;
 
     const plainText = paragrahForm.replace(/(<|&lt;)br\s*\/*(>|&gt;)/gi, ' ');
-    // gets rid of the <br> tags in the paragraphForm from above to use as the plain text b/c lazy
+    // gets rid of the <br> tags in the paragraphForm from above to use as the plain text
 
     const all_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //string used to both build the dict for algo 1 and to be used to encrypt both algos
