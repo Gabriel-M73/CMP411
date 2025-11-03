@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Calc is short for Calculator</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <main class="page">
+            <h1>Central Tendency Calulator</h1>
+
+            <section class="grid">
+                <div class="cell-container">
+                <h2>Form to get a random number</h2>
+                    <div class="cell">
+                        <form>
+                            <label for="min_range">Enter a minimum range</label>
+                            <input type="text" id="min_range" name="min_range" placeholder="min num"><br>
+                            <label for="max_range">Enter a maximim range</label>
+                            <input type="text" id="max_range" name="max_range" placeholder="max num"><br>
+                        </form>
+                    </div>
+                    <br>
+                    <input class="buttonlike" type="button" value="fetch a random number" onclick="getNumber()">
+                </div>
+
+                <div class="cell-container">
+                    <h2>Current Numbers</h2>
+                    <div class="cell">
+                        <p id="numbers_text"></p>
+                    </div>
+                </div>
+
+                <div class="cell-container">
+                    <h2>Central Tendencies</h2>
+                    <div class="cell">
+                        <p id="mean_text">Mean: N/A</p>
+                        <p id="median_text">Median: N/A</p>
+                    </div>
+                </div>
+                
+            </section>
+            
+        </main>
+    </body>
+</html>
