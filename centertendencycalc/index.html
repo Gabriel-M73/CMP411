@@ -13,23 +13,26 @@
 
             <section class="grid">
                 <div class="cell-container">
-                <h2>Form to get a random number</h2>
+                <h2>Form to get a number</h2>
                     <div class="cell">
                         <form>
                             <label for="min_range">Enter a minimum range</label>
-                            <input type="text" id="min_range" name="min_range" placeholder="min num"><br>
-                            <label for="max_range">Enter a maximim range</label>
-                            <input type="text" id="max_range" name="max_range" placeholder="max num"><br>
+                            <input type="text" id="min_range" name="min_range" placeholder="min num" required><br>
+                            <label for="max_range">Enter a maximum range</label>
+                            <input type="text" id="max_range" name="max_range" placeholder="max num" required><br>
+
+                            <label for="number_form">Enter a number</label>
+                            <input type="text" id="number_form" name="number_form" placeholder="enter a number" required><br>
                         </form>
                     </div>
                     <br>
-                    <input class="buttonlike" type="button" value="fetch a random number" onclick="getNumber()">
+                    <input class="buttonlike" type="button" value="Enter number" onclick="getNumber()">
                 </div>
 
                 <div class="cell-container">
                     <h2>Current Numbers</h2>
                     <div class="cell">
-                        <p id="numbers_text"></p>
+                        <p id="number_list"></p>
                     </div>
                 </div>
 
