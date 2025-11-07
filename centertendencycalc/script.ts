@@ -35,6 +35,18 @@ function getNumber() {
     mean = mean / numbers.length;
     (<HTMLInputElement>document.getElementById("mean_text")).innerHTML = "Mean: " + mean;
 
+    let median: number = 0;
+    numbers.sort((a, b) => a - b);
+
+    if (numbers.length % 2 === 0) {
+        let middle2: number = numbers.length / 2;
+        let middle1: number = middle2 - 1;
+        median = (middle1 + middle2) / 2;
+    } else {
+        median = numbers[Math.floor(numbers.length / 2)];
+    }
+    (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + median;
+
 }
 
 function clearNumbers() {

@@ -30,6 +30,18 @@ function getNumber() {
     }
     mean = mean / numbers.length;
     document.getElementById("mean_text").innerHTML = "Mean: " + mean;
+    var median = 0;
+    numbers.sort(function (a, b) { return a - b; });
+    alert(numbers);
+    if (numbers.length % 2 === 0) {
+        var middle2 = numbers.length / 2;
+        var middle1 = middle2 - 1;
+        median = (middle1 + middle2) / 2;
+    }
+    else {
+        median = numbers[Math.floor(numbers.length / 2)];
+    }
+    document.getElementById("median_text").innerHTML = "Median: " + median;
 }
 function clearNumbers() {
     document.getElementById("number_list").innerHTML = "";
