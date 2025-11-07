@@ -20,4 +20,19 @@ function getNumber() {
     else if (num >= min || num <= max) {
         document.getElementById("number_list").innerHTML += number + "<br>";
     }
+    var mean = 0;
+    var numbers = [];
+    var numberList = document.getElementById("number_list").innerHTML.split("<br>");
+    for (var i = 0; i < numberList.length - 1; i++) {
+        var currentNum = parseInt(numberList[i]);
+        numbers.push(currentNum);
+        mean += currentNum;
+    }
+    mean = mean / numbers.length;
+    document.getElementById("mean_text").innerHTML = "Mean: " + mean;
+}
+function clearNumbers() {
+    document.getElementById("number_list").innerHTML = "";
+    document.getElementById("mean_text").innerHTML = "Mean: N/A";
+    document.getElementById("median_text").innerHTML = "Median: N/A";
 }

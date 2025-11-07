@@ -24,5 +24,21 @@ function getNumber() {
         (<HTMLInputElement>document.getElementById("number_list")).innerHTML += number + "<br>";
     }
 
+    let mean: number = 0;
+    let numbers: number[] = [];
+    let numberList: string[] = (<HTMLInputElement>document.getElementById("number_list")).innerHTML.split("<br>");
+    for(let i = 0; i < numberList.length - 1; i++) {
+        let currentNum: number = parseInt(numberList[i]);
+        numbers.push(currentNum);
+        mean += currentNum;
+    }
+    mean = mean / numbers.length;
+    (<HTMLInputElement>document.getElementById("mean_text")).innerHTML = "Mean: " + mean;
 
 }
+
+function clearNumbers() {
+    (<HTMLInputElement>document.getElementById("number_list")).innerHTML = "";
+    (<HTMLInputElement>document.getElementById("mean_text")).innerHTML = "Mean: N/A";
+    (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: N/A";
+}   
