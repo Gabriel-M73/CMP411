@@ -41,11 +41,12 @@ function getNumber() {
     if (numbers.length % 2 === 0) {
         let middle2: number = numbers.length / 2;
         let middle1: number = middle2 - 1;
-        median = (middle1 + middle2) / 2;
+        (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + numbers[middle1] + ", " + numbers[middle2];
     } else {
         median = numbers[Math.floor(numbers.length / 2)];
+        (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + median;
     }
-    (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + median;
+    
 
 }
 
