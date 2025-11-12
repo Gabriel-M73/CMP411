@@ -7,12 +7,17 @@ function getNumber() {
     let max: number = parseInt(maxRange);
     let num: number = parseInt(number);
     
-    if(min === 0 || max === 0 || num === 0) {
+    if(minRange === "" || maxRange === "" || number === "") {
         alert("please a number for each input");
         return;
     }
 
-    if(min > max || max < min) {
+    if(isNaN(min) || isNaN(max) || isNaN(num)) {
+        alert("input is NaN, please enter a number");
+        return;
+    }
+
+    if(min >= max || max <= min) {
         alert("please enter valid ranges");
         return;
     }
@@ -24,6 +29,7 @@ function getNumber() {
         (<HTMLInputElement>document.getElementById("number_list")).innerHTML += number + "<br>";
     }
 
+    // mean calc
     let mean: number = 0;
     let numbers: number[] = [];
     let numberList: string[] = (<HTMLInputElement>document.getElementById("number_list")).innerHTML.split("<br>");
@@ -35,13 +41,14 @@ function getNumber() {
     mean = mean / numbers.length;
     (<HTMLInputElement>document.getElementById("mean_text")).innerHTML = "Mean: " + mean;
 
+    // median calc
     let median: number = 0;
     numbers.sort((a, b) => a - b);
 
     if (numbers.length % 2 === 0) {
         let middle2: number = numbers.length / 2;
         let middle1: number = middle2 - 1;
-        (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + numbers[middle1] + ", " + numbers[middle2];
+        (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + ((numbers[middle1] + numbers[middle2]) / 2);
     } else {
         median = numbers[Math.floor(numbers.length / 2)];
         (<HTMLInputElement>document.getElementById("median_text")).innerHTML = "Median: " + median;
