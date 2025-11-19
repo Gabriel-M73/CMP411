@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>baltro</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="card.js"></script>
+    </head>
+    <body>
+        <main class="page">
+            <h1>Deck of Cards API</h1>
+
+            <section class="grid">
+                <div class="cell-container">
+                <h2>Form to see how much meat to get</h2>
+                    <div class="cell">
+                        <form>
+                            <label for="card_form">Number of cards</label>
+                            <select id="card_form">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                            <br>
+                        </form>
+                    </div>
+                    <br>
+                    <input class="buttonlike" type="button" value="Draw card" onclick="drawCard()">
+                </div>
+
+                <div class="cell-container">
+                    <h2>Return data as raw JSON</h2>
+                    <div class="cell">
+                        <p id="raw_text"></p>
+                    </div>
+                </div>
+
+                <div class="cell-container">
+                    <h2>Return data as formatted paragraphs</h2>
+                    <div class="cell">
+                        <p id="formatted_text"></p>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </body>
+</html>
