@@ -51,7 +51,7 @@ async function drawCard(): Promise<void> {
         const img = document.createElement("img");
         img.src = card.image;
         img.alt = `${card.value} of ${card.suit}`;
-        img.width = 120;
+        img.width = 60;
         img.style.margin = "10px";
         container.appendChild(img);
     });    

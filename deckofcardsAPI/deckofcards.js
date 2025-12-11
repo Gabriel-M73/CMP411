@@ -89,12 +89,12 @@ function drawCard() {
                     pileData = _a.sent();
                     cards = pileData.piles[player].cards;
                     container = document.getElementById("".concat(player, "_images"));
-                    container.innerHTML = ""; // clear old images
+                    container.innerHTML = ""; // clears old images so that you don't get duplicates
                     cards.forEach(function (card) {
                         var img = document.createElement("img");
                         img.src = card.image;
                         img.alt = "".concat(card.value, " of ").concat(card.suit);
-                        img.width = 120;
+                        img.width = 60;
                         img.style.margin = "10px";
                         container.appendChild(img);
                     });
