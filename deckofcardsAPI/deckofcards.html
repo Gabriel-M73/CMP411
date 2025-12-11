@@ -7,40 +7,51 @@
         <link rel="stylesheet" href="style.css" />
         <script src="deckofcards.js"></script>
     </head>
-    <body>
+    <body onload="setupDeck()">
         <main class="page">
             <h1>Deck of Cards API</h1>
 
             <section class="grid">
                 <div class="cell-container">
-                <h2>Form to see how much meat to get</h2>
-                    <div class="cell">
+                <h2>Form to see how much cards to draw</h2>
+                    <div class="input-form-cell">
                         <form>
                             <label for="card_form">Number of cards</label>
                             <select id="card_form">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                             <br>
                         </form>
+
+                        
+                        <form>
+                            <label for="draw_source">Draw for:</label>
+                            <select id="draw_source">
+                                <option value="player1">Player 1</option>
+                                <option value="player2">Player 2</option>
+                            </select>
+                        </form>
+                        
                     </div>
                     <br>
                     <input class="buttonlike" type="button" value="Draw card" onclick="drawCard()">
+                    <input class="buttonlike" type="button" value="Shuffle deck" onclick="shuffleDeck()">
                 </div>
 
                 <div class="cell-container">
-                    <h2>Return data as raw JSON</h2>
-                    <div class="cell">
-                        <p id="raw_text"></p>
-                    </div>
+                    <h2>Player 1</h2>
+                    <div id="player1_images"></div>
                 </div>
 
                 <div class="cell-container">
-                    <h2>Return data as formatted paragraphs</h2>
-                    <div class="cell">
-                        <p id="formatted_text"></p>
-                    </div>
+                    <h2>Player 2</h2>
+                    <div id="player2_images"></div>
                 </div>
+
             </section>
             
         </main>
