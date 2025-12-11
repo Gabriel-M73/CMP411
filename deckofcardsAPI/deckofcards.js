@@ -1,70 +1,127 @@
-let deck = null; // store deck ID globally
-
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var deck = null; // store deck ID globally
 // create the deck once
-async function setupDeck() {
-    const res = await fetch("https://deckofcardsapi.com/api/deck/new/shuffle/");
-    const data = await res.json();
-    deck = data.deck_id; // save it
-    console.log("Deck created:", deck);
+function setupDeck() {
+    return __awaiter(this, void 0, void 0, function () {
+        var res, data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, fetch("https://deckofcardsapi.com/api/deck/new/shuffle/")];
+                case 1:
+                    res = _a.sent();
+                    return [4 /*yield*/, res.json()];
+                case 2:
+                    data = _a.sent();
+                    deck = data.deck_id; // save it
+                    console.log("Deck created:", deck);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
-
-async function drawCard() {
-    if (!deck) {
-        console.error("Deck has not been created yet!");
-        return;
-    }
-
-    let cardNum = document.getElementById("card_form").value;
-
-    let api = "https://deckofcardsapi.com/api/deck/" + deck + "/draw/?count=" + cardNum;
-
-    alert(api);
-
-    const drawRes = await fetch(api);
-    const drawData = await drawRes.json();
-
-    if (!drawData.success || drawData.cards.length === 0) {
-        return alert("No cards left in the deck!");
-    }
-
-
-    let player = document.getElementById("draw_source").value;
-
-    // Add drawn cards to the "hand" pile
-    const cardCodes = drawData.cards.map(card => card.code).join(",");
-    await fetch(
-        `https://deckofcardsapi.com/api/deck/${deck}/pile/${player}/add/?cards=${cardCodes}`
-    );
-
-    // Get the full hand from the pile
-    const pileRes = await fetch(
-        `https://deckofcardsapi.com/api/deck/${deck}/pile/${player}/list/`
-    );
-    const pileData = await pileRes.json();
-
-
-    const cards = pileData.piles[player].cards;
-
-    // Display as images
-    const container = document.getElementById(`${player}_images`);
-    container.innerHTML = ""; // clear old images
-
-    cards.forEach(card => {
-        const img = document.createElement("img");
-        img.src = card.image;
-        img.alt = `${card.value} of ${card.suit}`;
-        img.width = 120;
-        img.style.margin = "10px";
-        container.appendChild(img);
-    });    
+function drawCard() {
+    return __awaiter(this, void 0, void 0, function () {
+        var cardNum, api, drawRes, drawData, player, cardCodes, pileRes, pileData, cards, container;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!deck) {
+                        console.error("Deck has not been created yet!");
+                        return [2 /*return*/];
+                    }
+                    cardNum = document.getElementById("card_form").value;
+                    api = "https://deckofcardsapi.com/api/deck/" + deck + "/draw/?count=" + cardNum;
+                    alert(api);
+                    return [4 /*yield*/, fetch(api)];
+                case 1:
+                    drawRes = _a.sent();
+                    return [4 /*yield*/, drawRes.json()];
+                case 2:
+                    drawData = _a.sent();
+                    if (!drawData.success || drawData.cards.length === 0) {
+                        return [2 /*return*/, alert("No cards left in the deck!")];
+                    }
+                    player = document.getElementById("draw_source").value;
+                    cardCodes = drawData.cards.map(function (card) { return card.code; }).join(",");
+                    return [4 /*yield*/, fetch("https://deckofcardsapi.com/api/deck/".concat(deck, "/pile/").concat(player, "/add/?cards=").concat(cardCodes))];
+                case 3:
+                    _a.sent();
+                    return [4 /*yield*/, fetch("https://deckofcardsapi.com/api/deck/".concat(deck, "/pile/").concat(player, "/list/"))];
+                case 4:
+                    pileRes = _a.sent();
+                    return [4 /*yield*/, pileRes.json()];
+                case 5:
+                    pileData = _a.sent();
+                    cards = pileData.piles[player].cards;
+                    container = document.getElementById("".concat(player, "_images"));
+                    container.innerHTML = ""; // clear old images
+                    cards.forEach(function (card) {
+                        var img = document.createElement("img");
+                        img.src = card.image;
+                        img.alt = "".concat(card.value, " of ").concat(card.suit);
+                        img.width = 120;
+                        img.style.margin = "10px";
+                        container.appendChild(img);
+                    });
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
-
-async function shuffleDeck() {
-    const shuffleRes = await fetch(`https://deckofcardsapi.com/api/deck/${deck}/shuffle/`);
-    const shuffleData = await shuffleRes.json();
-
-    document.getElementById("player1_images").innerHTML = "";
-    document.getElementById("player2_images").innerHTML = "";
-
-    console.log("Deck shuffled:", shuffleData);
+function shuffleDeck() {
+    return __awaiter(this, void 0, void 0, function () {
+        var shuffleRes, shuffleData;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!deck)
+                        return [2 /*return*/];
+                    return [4 /*yield*/, fetch("https://deckofcardsapi.com/api/deck/".concat(deck, "/shuffle/"))];
+                case 1:
+                    shuffleRes = _a.sent();
+                    return [4 /*yield*/, shuffleRes.json()];
+                case 2:
+                    shuffleData = _a.sent();
+                    document.getElementById("player1_images").innerHTML = "";
+                    document.getElementById("player2_images").innerHTML = "";
+                    console.log("Deck shuffled:", shuffleData);
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
